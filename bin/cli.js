@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+const { execSync } = require("child_process");
+
+function runCommand(command) {
+  try {
+    execSync(command, { stdio: "inherit" });
+  } catch (e) {
+    console.error(`Failed to execute ${command}`);
+    return false;
+  }
+
+  return true;
+}
+
+const repoName = process.argv[2];
+const gitCheckoutCommand = `git clone --depth 1 https://github.com/jsjoeio/create-express-ts ${repoName}`;
+const installDepsCommand = `cd ${repoName} && yarn install`;
+
+console.log(`Cloning the create-express-ts with name ${repoName}`);
+
+const checkedOut = runCommand(gitCheckoutCommand);
+
+if (!checkedOut) {
+  process.exit(1);
+}
+
+const installedDeps = runCommand(installDepsCommand);
+
+if (!installedDeps) {
+  process.exit(1);
+}
+
+console.log(`\n🎉 Your repo is ready!\n`);
+console.log(`➡️ cd ${repoName} and run yarn dev to start your app`);
