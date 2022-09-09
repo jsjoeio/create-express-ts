@@ -16,6 +16,7 @@ function runCommand(command) {
 const repoName = process.argv[2];
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/jsjoeio/create-express-ts ${repoName}`;
 const installDepsCommand = `cd ${repoName} && yarn install`;
+const cleanupCommand = `cd ${repoName} && rm -rf /bin`;
 
 console.log(`Cloning the create-express-ts with name ${repoName}`);
 
@@ -31,5 +32,11 @@ if (!installedDeps) {
   process.exit(1);
 }
 
-console.log(`\n🎉 Your repo is ready!\n`);
-console.log(`➡️ cd ${repoName} and run yarn dev to start your app`);
+const cleanedUp = runCommand(cleanupCommand);
+
+if (!cleanedUp) {
+  process.exit(1);
+}
+
+console.log(`\n🎉 Your repo is ready!`);
+console.log(`➡️ cd ${repoName} and run yarn dev to start your app\n`);
