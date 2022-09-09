@@ -16,7 +16,7 @@ function runCommand(command) {
 const repoName = process.argv[2];
 const gitCheckoutCommand = `git clone --depth 1 https://github.com/jsjoeio/create-express-ts ${repoName}`;
 const installDepsCommand = `cd ${repoName} && yarn install`;
-const cleanupCommand = `cd ${repoName} && rm -rf /bin`;
+const cleanupCommand = `cd ${repoName} && rm -rf ./bin`;
 
 console.log(`Cloning the create-express-ts with name ${repoName}`);
 
