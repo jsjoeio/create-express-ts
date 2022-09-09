@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+// Credit: https://bonsaiilabs.com/create-npx-starter-command/
+
 const { execSync } = require("child_process");
 
 function runCommand(command) {
@@ -39,4 +41,4 @@ if (!cleanedUp) {
 }
 
 console.log(`\n🎉 Your repo is ready!`);
-console.log(`➡️ cd ${repoName} and run yarn dev to start your app\n`);
+console.log(`➡️ cd ${repoName} and run yarn dev to start your app`);
