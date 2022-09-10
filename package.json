@@ -2,8 +2,10 @@
   "name": "create-express-ts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "bin": "./bin/cli.js",
+  "main": "bin/cli.js",
+  "bin": {
+    "create-express-ts": "bin/cli.js"
+  },
   "scripts": {
     "build": "yarn tsc",
     "start": "node dist/index.js",
