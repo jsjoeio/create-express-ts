@@ -41,4 +41,4 @@ if (!cleanedUp) {
 }
 
 console.log(`\n🎉 Your repo is ready!`);
-console.log(`➡️ cd ${repoName} and run yarn dev to start your app`);
+console.log(`➡️ 'cd ${repoName} && yarn dev' to start your app`);
